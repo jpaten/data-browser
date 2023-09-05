@@ -13,14 +13,18 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: "16.15.1"
-      - name: Enter explorer directory
-        run: cd explorer
       - name: Install dependencies
-        run: npm ci
+        run: |
+            cd explorer
+            npm ci
       - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
+        run: |
+            cd explorer
+            npx playwright install --with-deps
       - name: Run Playwright tests
-        run: npx playwright test
+        run: |
+          cd explorer
+          npm run test:anvil-cmg
       - uses: actions/upload-artifact@v3
         if: always()
         with:
