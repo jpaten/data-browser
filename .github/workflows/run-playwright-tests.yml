@@ -1,0 +1,16 @@
+name: Run e2e tests
+on: [ pull_request ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "16.15.1"
+      - run: |
+          cd explorer
+          npm ci
+          npx playwright install --with-deps
+          npm run test:anvil-cmg
