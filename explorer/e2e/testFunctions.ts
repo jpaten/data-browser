@@ -25,7 +25,7 @@ export async function testUrl(
 
 // Run the "Expect each tab to become selected, to go to the correct url, and to show all of its columns when selected" test
 export async function testTab(page: Page, tab: TabDescription): Promise<void> {
-  await page.getByRole("tab").getByText(tab.tabName).click();
+  await page.getByRole("tab").getByText(tab.tabName, { exact: true }).click();
   await expect(page).toHaveURL(tab.url, { timeout: 10000 });
   await expect(page.getByRole("tab").getByText(tab.tabName)).toHaveAttribute(
     "aria-selected",

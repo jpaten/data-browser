@@ -25,7 +25,7 @@ export const donorsEntityConfig: EntityConfig<DonorsResponse> = {
     tabs: [],
     top: [],
   },
-  label: "Donors",
+  label: "DonorsHello",
   list: {
     columns: [
       {

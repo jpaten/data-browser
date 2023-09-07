@@ -3,6 +3,7 @@ const config: PlaywrightTestConfig = {
   expect: {
     timeout: 10 * 1000,
   },
+  fullyParallel: true,
   testDir: "e2e",
   testMatch: /.*\/(anvil-catalog)\/.*\.spec\.ts/,
   use: {
@@ -15,5 +16,6 @@ const config: PlaywrightTestConfig = {
     timeout: 120 * 1000,
     url: "http://localhost:3000/data",
   },
+  workers: "50%",
 };
 export default config;
